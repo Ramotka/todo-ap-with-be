@@ -1,0 +1,30 @@
+<div class="tasks-container">
+  <h2>Tasks</h2>
+
+  @if (isLoading()) {
+  <div class="loading">Loading...</div>
+  } @if (error()) {
+  <div class="error">
+    {{ error() }}
+  </div>
+  }
+
+  <div class="tasks-list">
+    @for (task of tasks(); track task.id) {
+    <div class="task-item">
+      <input
+        type="checkbox"
+        [checked]="task.completed"
+        (change)="toggleTask(task.id, !task.completed)"
+      />
+      <span [class.completed]="task.completed">{{ task.title }}</span>
+      <button (click)="deleteTask(task.id)">Delete</button>
+    </div>
+    }
+  </div>
+
+  <div class="add-task">
+    <input [(ngModel)]="newTaskTitle" placeholder="New task title" />
+    <button (click)="addTask()">Add Task</button>
+  </div>
+</div>

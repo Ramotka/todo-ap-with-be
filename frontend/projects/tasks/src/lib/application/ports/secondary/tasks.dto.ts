@@ -3,10 +3,10 @@ export interface TasksResponseDTO {
 }
 
 export interface TaskDTO {
-  readonly id: string;
+  readonly _id: string;
   readonly title: string;
   readonly description: string;
   readonly completed: boolean;
-  readonly createdAt: Date;
-  readonly updatedAt: Date;
+  readonly createdAt: string;
+  readonly updatedAt: string;
 }

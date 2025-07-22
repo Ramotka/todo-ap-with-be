@@ -45,4 +45,8 @@ export class TasksComponent implements OnInit {
   deleteTask(id: string) {
     this.store.deleteTask(id);
   }
+
+  testMethod() {
+    console.log('test')
+  }
 }
